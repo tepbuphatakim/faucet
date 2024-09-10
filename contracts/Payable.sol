@@ -13,7 +13,7 @@ contract Payable {
   }
 
   function withdraw(uint256 amount) public {
-    require(msg.sender == owner, "Only the owner can send Ether");
+    require(msg.sender == owner, "Only the owner can withdraw Ether");
     require(address(this).balance >= amount, "Insufficient balance");
 
     (bool sent, ) = owner.call{value: amount}("");
